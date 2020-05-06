@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Event";
+    List<EventDto> events = ViewBag.events;
+
+
+}
+
+
+  
+    <div class="card">
+        <div class="card-header">
+            <h3>@ViewBag.date</h3>
+            <button class="btn btn-success">Add new</button>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th scope="col">Start</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Hour</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (EventDto ev in events)
+                {
+                    <tr>
+
+                        <td>@ev.start</td>
+                        <td>@ev.title</td>
+                        <td>@ev.hour</td>
+                        <td>
+                            <button class="btn btn-info" onclick="location.href= '@Url.Action("Edit","Home",new { name = ev.title })'">Edit</button>
+                            <button id="delButton" class="btn btn-danger" onclick="location.href= '@Url.Action("removeEvent","Home",new { name = ev.title })'">Delete</button>
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+    

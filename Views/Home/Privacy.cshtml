@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<div class="card">
+    <div class="card-body">
+        <h3>Add new event</h3>
+        <form asp-controller="Home" asp-action="AddEvent" method="post">
+            <input type="text" id="name" />
+            <input type="date" id="start" />
+            <button class="btn btn-success" type="submit">Add</button>
+        </form>
+    </div>
+</div>
+   

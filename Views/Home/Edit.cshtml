@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+    EventDto ev = ViewBag.ev;
+}
+
+    <div class="card">
+        <form method="POST" asp-controller="Home", asp-action="Edit">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Title</label>
+                <input type="text" class="form-control" id="titleInput" aria-describedby="titleHelper" value="@ev.title" placeholder="name">
+
+            </div>
+
+            <div class="form-group">
+                <label for="time">hour</label>
+                <input type="text" class="form-control" id="hourInput" aria-describedby="hourHelper" value="@ev.hour" placeholder="hour">
+            </div>
+
+            <div class="form-group">
+                <label for="time">time</label>
+                <input type="text" class="form-control" id="timeInput" aria-describedby="timeHelper" value="@ev.start" placeholder="time">
+            </div>
+
+
+            <div class="editButtons">
+                <button type="submit" class="btn btn-success">Change</button>
+                <button class="btn btn-danger" onclick="location.href= '@Url.Action("Event","Home",new { date = ev.start })'">Back</button>
+            </div>
+        </form>
+       
+        
+    </div>
